@@ -1,0 +1,74 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Faq {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://10.129.50.4/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testFaq() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.id("faq")).click();
+    driver.findElement(By.id("ac-51")).click();
+    assertEquals("IITBombayX primarily intends to offer courses from IIT Bombay and teacher training workshops, from IIT Bombay and IIT Kharagpur. Courses from other institutions/universities are expected to be offered soon on the national platform, Swayam. A few such courses will be offered on this IITBombayX platform on a pilot basis, as a part of the commitment to the National Mission on Education using ICT (NMEICT). It may be noted that that the content and running of such courses is entirely the responsiblity of the institutional universities which offer these courses. IITBombayX will not be responsible for the conduct of any of such courses.", driver.findElement(By.xpath("//div[@id='content']/div/div[2]/div/div/div/div/table/tbody/tr/td[2]/section/div/div/section/div[51]/article/p")).getText());
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

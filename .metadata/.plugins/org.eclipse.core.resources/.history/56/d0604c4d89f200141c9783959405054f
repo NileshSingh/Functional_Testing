@@ -1,0 +1,14 @@
+package HomeToFAQ_page_test;
+
+import org.openqa.selenium.WebDriver;
+
+public class faq_On_FaqPage {
+	
+	private WebDriver wd;
+	
+	public void faqOf_FaqPage() throws Exception
+	{
+		
+	}
+
+}

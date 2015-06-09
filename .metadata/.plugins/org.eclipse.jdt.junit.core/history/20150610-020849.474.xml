@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ForgotPassword" project="test_iitbombayX" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="iitbombayX.loginPage.ForgotPassword" time="16.792">
+    <testcase name="testResetPassword" classname="iitbombayX.loginPage.ForgotPassword" time="16.792"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,21 @@
+package HomeToFAQ_page_test;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+public class faq_On_FaqPage {
+	
+	private WebDriver wd;
+	
+	@Test
+	public void faqOf_FaqPage() throws Exception
+	{
+		
+	}
+
+	@BeforeMethod
+	public void BeforeMethod()
+	{
+		
+	}
+}

@@ -1,0 +1,40 @@
+package HomeToFAQ_page_test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class faq_On_FaqPage {
+	
+	private WebDriver wd;
+	
+	@Test
+	public void faqOf_FaqPage() throws Exception
+	{
+		String content= wd.findElement(By.className("ac-large")).getText();
+		System.out.println("Faq Content is : "+content);
+		
+		   //System.out.println("result is : "+content.matches("swayam"));   //false 
+	}
+
+	 @BeforeMethod
+	 public void beforeMethod()
+	{
+		 wd = new FirefoxDriver();
+		 
+		 wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 wd.get("http://10.129.50.4/faq");
+		 
+		
+	}
+	 @AfterMethod
+	 public void afterMethod()
+	 {
+		 wd.quit();
+	 }
+}
